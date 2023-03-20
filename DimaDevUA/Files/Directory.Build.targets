@@ -1,0 +1,19 @@
+<Project>
+	<ItemGroup Condition="'$(PkgPath)' != ''">
+		<Compile Remove="$(PkgPath)/DimaDevUA/Assemblies/**" />
+		<Compile Remove="$(PkgPath)/DimaDevUA/Data/**" />
+		<Compile Remove="$(PkgPath)/DimaDevUA/SqlScripts/**" />
+		<Compile Remove="$(PkgPath)/DimaDevUA/Schemas\**" />
+		<Compile Remove="$(PkgPath)/DimaDevUA/Resources/**" />
+		<EmbeddedResource Remove="$(PkgPath)/DimaDevUA/Assemblies/**" />
+		<EmbeddedResource Remove="$(PkgPath)/DimaDevUA/Data/**" />
+		<EmbeddedResource Remove="$(PkgPath)/DimaDevUA/SqlScripts/**" />
+		<EmbeddedResource Remove="$(PkgPath)/DimaDevUA/Schemas/**" />
+		<EmbeddedResource Remove="$(PkgPath)/DimaDevUA/Resources/**" />
+		<None Remove="$(PkgPath)/DimaDevUA/Assemblies/**" />
+		<None Remove="$(PkgPath)/DimaDevUA/Data/**" />
+		<None Remove="$(PkgPath)/DimaDevUA/SqlScripts/**" />
+		<None Remove="$(PkgPath)/DimaDevUA/Schemas/**" />
+		<None Remove="$(PkgPath)/DimaDevUA/Resources/**" />
+  </ItemGroup>
+</Project>

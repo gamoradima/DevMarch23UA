@@ -1,0 +1,22 @@
+﻿{
+  "Descriptor": {
+    "UId": "fb2ff58a-29d0-c91d-5945-f3f38ecdf177",
+    "Name": "DimaDevUA",
+    "Type": 1,
+    "ModifiedOnUtc": "\/Date(1679319534000)\/",
+    "Maintainer": "Customer",
+    "ProjectPath": "Files/DimaDevUA.csproj",
+    "DependsOn": [
+      {
+        "UId": "99707b27-fb9d-4a8d-a9ce-313a68e7423f",
+        "PackageVersion": "7.8.0",
+        "Name": "ServiceEnterpriseSoftkey"
+      },
+      {
+        "UId": "cbc7d8fb-0ab5-42a1-bc8c-60da507c44c4",
+        "PackageVersion": "7.8.0",
+        "Name": "ServiceEnterpriseDefSettings"
+      }
+    ]
+  }
+}
