@@ -1,0 +1,84 @@
+﻿{
+  "PackageData": [
+    {
+      "Row": [
+        {
+          "SchemaColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+          "Value": "07e1549c-20de-47c1-adb0-8ef7c71814d2"
+        },
+        {
+          "SchemaColumnUId": "9e53fd7c-dde4-4502-a64c-b9e34148108b",
+          "Value": "Г"
+        },
+        {
+          "SchemaColumnUId": "a0429890-b3ea-5aab-334b-79b246dc8af3",
+          "Value": "RLT04"
+        }
+      ]
+    },
+    {
+      "Row": [
+        {
+          "SchemaColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+          "Value": "3a87b9fe-d9be-41b8-9977-d0f71536fffc"
+        },
+        {
+          "SchemaColumnUId": "9e53fd7c-dde4-4502-a64c-b9e34148108b",
+          "Value": "Опис"
+        },
+        {
+          "SchemaColumnUId": "a0429890-b3ea-5aab-334b-79b246dc8af3",
+          "Value": "RLT01"
+        }
+      ]
+    },
+    {
+      "Row": [
+        {
+          "SchemaColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+          "Value": "7988ee00-3b76-414a-a3ea-dfa8a626b81d"
+        },
+        {
+          "SchemaColumnUId": "9e53fd7c-dde4-4502-a64c-b9e34148108b",
+          "Value": "П"
+        },
+        {
+          "SchemaColumnUId": "a0429890-b3ea-5aab-334b-79b246dc8af3",
+          "Value": "RLT05"
+        }
+      ]
+    },
+    {
+      "Row": [
+        {
+          "SchemaColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+          "Value": "9d785bc7-4129-45c9-a11d-8cdaf27bac6b"
+        },
+        {
+          "SchemaColumnUId": "9e53fd7c-dde4-4502-a64c-b9e34148108b",
+          "Value": "Дом"
+        },
+        {
+          "SchemaColumnUId": "a0429890-b3ea-5aab-334b-79b246dc8af3",
+          "Value": "RLT02"
+        }
+      ]
+    },
+    {
+      "Row": [
+        {
+          "SchemaColumnUId": "ae0e45ca-c495-4fe7-a39d-3ab7278e1617",
+          "Value": "e5c503e9-ee8a-419e-9959-af54be089d6a"
+        },
+        {
+          "SchemaColumnUId": "9e53fd7c-dde4-4502-a64c-b9e34148108b",
+          "Value": "офис"
+        },
+        {
+          "SchemaColumnUId": "a0429890-b3ea-5aab-334b-79b246dc8af3",
+          "Value": "RLT03"
+        }
+      ]
+    }
+  ]
+}
