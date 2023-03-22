@@ -1,0 +1,14 @@
+﻿{
+  "Descriptor": {
+    "UId": "1ed0862c-7b85-4279-9f8d-106018de3af7",
+    "Name": "UsrRealtyClassicFile",
+    "ModifiedOnUtc": "\/Date(1679492513000)\/",
+    "Parent": {
+      "UId": "556c5867-60a7-4456-aae1-a57a122bef70",
+      "Name": "File"
+    },
+    "ManagerName": "EntitySchemaManager",
+    "Caption": "Файл и ссылка объекта Недвижимость (classic)",
+    "DependsOn": []
+  }
+}

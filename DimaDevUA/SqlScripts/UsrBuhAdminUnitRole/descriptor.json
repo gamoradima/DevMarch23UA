@@ -1,0 +1,11 @@
+﻿{
+  "SqlScript": {
+    "UId": "173936cd-a3f0-872d-5265-f6c171a36da4",
+    "Name": "UsrBuhAdminUnitRole",
+    "DBEngineType": 0,
+    "InstallType": 2,
+    "ModifiedOnUtc": "\/Date(1679489676000)\/",
+    "BackwardCompatibilityConfirmed": false,
+    "DependsOn": []
+  }
+}
