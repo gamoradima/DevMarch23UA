@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "2863299a-3467-4813-bd57-24902082e282",
+    "Name": "UsrPage_rn37pfm",
+    "ModifiedOnUtc": "\/Date(1679919977000)\/",
+    "Parent": {
+      "UId": "97e48060-149c-408f-9f17-8ba82c400249",
+      "Name": "PageWithAreaFreedomTemplate"
+    },
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "Страница записи Просмотр недвижимости (FreedomUI)"
+  }
+}

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="en-US">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Страница записи Просмотр недвижимости (FreedomUI)" />
+			<Item Name="LocalizableStrings.addRecord_9d0s7o0_caption.Value" Value="Добавить" />
+			<Item Name="LocalizableStrings.addRecord_sd2ohq5_caption.Value" Value="Добавить" />
+		</Items>
+	</Group>
+</Resources>

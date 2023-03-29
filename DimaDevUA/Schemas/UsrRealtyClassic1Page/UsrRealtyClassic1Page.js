@@ -1,7 +1,42 @@
 define("UsrRealtyClassic1Page", [], function() {
 	return {
 		entitySchemaName: "UsrRealtyClassic",
-		attributes: {},
+		attributes: {
+			"CommissionUSD": {
+				"dataValueType": Terrasoft.DataValueType.FLOAT,
+				"type": Terrasoft.ViewModelColumnType.VIRTUAL_COLUMN,
+				"value": 0,
+				dependencies: [
+					{
+						columns: ["UsrPriceUSD", "UsrOfferType"],
+						methodName: "calculateCommission"
+					}
+				],
+				"caption": "Комиссия, USD"
+			},
+			"UsrOfferType": {
+				lookupListConfig: {
+					columns: ["UsrCommissionMultiplier"]
+				}
+			},
+			"UsrManager": {
+				dataValueType: Terrasoft.DataValueType.LOOKUP,
+				lookupListConfig: {
+                    "filters": [
+                        function() {
+                            var filterGroup = Ext.create("Terrasoft.FilterGroup");
+							var subFilters = this.Terrasoft.createFilterGroup();
+							subFilters.addItem(this.Terrasoft.createColumnFilterWithParameter(
+								this.Terrasoft.ComparisonType.EQUAL, "UsrParentRealty", this.get("Id")));
+
+							var filter = Terrasoft.createExistsFilter("[UsrRealtyVisitClassic:UsrEmployeeContact:Id].Id", subFilters); 
+							filterGroup.add("MainFilter", filter);
+                            return filterGroup;
+                        }
+                    ]
+                }
+		    }
+		},
 		modules: /**SCHEMA_MODULES*/{}/**SCHEMA_MODULES*/,
 		details: /**SCHEMA_DETAILS*/{
 			"Files": {
@@ -11,10 +46,102 @@ define("UsrRealtyClassic1Page", [], function() {
 					"masterColumn": "Id",
 					"detailColumn": "UsrRealtyClassic"
 				}
+			},
+			"UsrSchema0eb388b8Detail902bbd7a": {
+				"schemaName": "UsrRealtyVisitClassicDetailGrid",
+				"entitySchemaName": "UsrRealtyVisitClassic",
+				"filter": {
+					"detailColumn": "UsrParentRealty",
+					"masterColumn": "Id"
+				}
 			}
 		}/**SCHEMA_DETAILS*/,
-		businessRules: /**SCHEMA_BUSINESS_RULES*/{}/**SCHEMA_BUSINESS_RULES*/,
-		methods: {},
+		businessRules: /**SCHEMA_BUSINESS_RULES*/{
+			"UsrComment": {
+				"beb5c4cd-6831-4c23-b861-f4db2cb699e3": {
+					"uId": "beb5c4cd-6831-4c23-b861-f4db2cb699e3",
+					"enabled": true,
+					"removed": false,
+					"ruleType": 0,
+					"property": 0,
+					"logical": 0,
+					"conditions": [
+						{
+							"comparisonType": 7,
+							"leftExpression": {
+								"type": 1,
+								"attribute": "UsrPriceUSD"
+							},
+							"rightExpression": {
+								"type": 0,
+								"value": 99.99,
+								"dataValueType": 5
+							}
+						}
+					]
+				}
+			}
+		}/**SCHEMA_BUSINESS_RULES*/,
+		messages: {
+			"MyMessageCode": {
+        		mode: Terrasoft.MessageMode.PTP,
+        		direction: Terrasoft.MessageDirectionType.PUBLISH
+		    },
+		},
+		methods: {
+			init: function() {
+ 				this.callParent(arguments);
+				// Registering of messages
+    			this.sandbox.registerMessages(this.messages);
+			},
+			onMyButtonClick: function() {
+				this.console.log("Кнопка ПЫЩЬ работает!");
+				Terrasoft.showInformation("Похоже, кнопка работает!");
+				this.sandbox.publish("MyMessageCode", null, []);
+			},
+
+			positiveValueValidator: function(value, column) {
+				var msg = "";
+				if (value < 0) {
+					msg = this.get("Resources.Strings.ValueMustBeGreaterThanZero");
+				}
+				return {
+					invalidMessage: msg
+				};
+			},
+			setValidationConfig: function() {
+				this.callParent(arguments);
+				this.addColumnValidator("UsrPriceUSD", this.positiveValueValidator);
+				this.addColumnValidator("UsrArea", this.positiveValueValidator);
+			},
+
+			calculateCommission: function() {
+				var price = this.get("UsrPriceUSD");
+				if (!price) {
+					price = 0;
+				}
+				var offerTypeObject = this.get("UsrOfferType");
+				var coeff = 0;
+				if (offerTypeObject) {
+					coeff = offerTypeObject.UsrCommissionMultiplier;
+				}
+				var commission = price * coeff;
+				this.set("CommissionUSD", commission);
+			},
+			onEntityInitialized: function() {
+				this.callParent(arguments);
+				this.calculateCommission();
+			},
+			
+			getMyButtonEnabled: function() {
+				var result = true;
+				var name = this.get("UsrName");
+				if (!name) {
+					result = false;
+				}
+				return result;
+			}
+		},
 		dataModels: /**SCHEMA_DATA_MODELS*/{}/**SCHEMA_DATA_MODELS*/,
 		diff: /**SCHEMA_DIFF*/[
 			{
@@ -73,6 +200,51 @@ define("UsrRealtyClassic1Page", [], function() {
 			},
 			{
 				"operation": "insert",
+				"name": "FLOATdc2aa3df-6cad-4d5e-b8ee-641157885ab0",
+				"values": {
+					"layout": {
+						"colSpan": 24,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 3,
+						"layoutName": "ProfileContainer"
+					},
+					"bindTo": "CommissionUSD",
+					"enabled": false
+				},
+				"parentName": "ProfileContainer",
+				"propertyName": "items",
+				"index": 3
+			},
+			{
+				"operation": "insert",
+				"name": "MyButton",
+				"values": {
+					"layout": {
+						"colSpan": 24,
+						"rowSpan": 1,
+						"column": 0,
+						"row": 4,
+						"layoutName": "ProfileContainer"
+					},
+					"itemType": 5,
+					"caption": {
+						"bindTo": "Resources.Strings.MyButtonCaption"
+					},
+					"click": {
+						"bindTo": "onMyButtonClick"
+					},
+					"enabled": {
+						"bindTo": "getMyButtonEnabled"
+					},
+					"style": "blue"
+				},
+				"parentName": "ProfileContainer",
+				"propertyName": "items",
+				"index": 4
+			},
+			{
+				"operation": "insert",
 				"name": "LOOKUP8d288418-caf6-46c6-a5ae-50dcd1a9d14d",
 				"values": {
 					"layout": {
@@ -114,7 +286,7 @@ define("UsrRealtyClassic1Page", [], function() {
 				"name": "STRINGde420616-d901-4b12-87a0-6022b5536723",
 				"values": {
 					"layout": {
-						"colSpan": 24,
+						"colSpan": 12,
 						"rowSpan": 1,
 						"column": 0,
 						"row": 1,
@@ -130,10 +302,29 @@ define("UsrRealtyClassic1Page", [], function() {
 			},
 			{
 				"operation": "insert",
-				"name": "NotesAndFilesTab",
+				"name": "LOOKUP888bf5b2-0ecf-4642-92ca-934fc2a83194",
+				"values": {
+					"layout": {
+						"colSpan": 12,
+						"rowSpan": 1,
+						"column": 12,
+						"row": 1,
+						"layoutName": "Header"
+					},
+					"bindTo": "UsrManager",
+					"enabled": true,
+					"contentType": 5
+				},
+				"parentName": "Header",
+				"propertyName": "items",
+				"index": 3
+			},
+			{
+				"operation": "insert",
+				"name": "Tab4c958596TabLabel",
 				"values": {
 					"caption": {
-						"bindTo": "Resources.Strings.NotesAndFilesTabCaption"
+						"bindTo": "Resources.Strings.Tab4c958596TabLabelTabCaption"
 					},
 					"items": [],
 					"order": 0
@@ -141,6 +332,31 @@ define("UsrRealtyClassic1Page", [], function() {
 				"parentName": "Tabs",
 				"propertyName": "tabs",
 				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "UsrSchema0eb388b8Detail902bbd7a",
+				"values": {
+					"itemType": 2,
+					"markerValue": "added-detail"
+				},
+				"parentName": "Tab4c958596TabLabel",
+				"propertyName": "items",
+				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "NotesAndFilesTab",
+				"values": {
+					"caption": {
+						"bindTo": "Resources.Strings.NotesAndFilesTabCaption"
+					},
+					"items": [],
+					"order": 1
+				},
+				"parentName": "Tabs",
+				"propertyName": "tabs",
+				"index": 1
 			},
 			{
 				"operation": "insert",
@@ -198,7 +414,7 @@ define("UsrRealtyClassic1Page", [], function() {
 				"operation": "merge",
 				"name": "ESNTab",
 				"values": {
-					"order": 1
+					"order": 2
 				}
 			}
 		]/**SCHEMA_DIFF*/

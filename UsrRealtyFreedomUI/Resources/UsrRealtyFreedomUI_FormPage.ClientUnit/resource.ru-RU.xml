@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="ru-RU">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Страница записи Недвижимость (FreedomUI)" />
+			<Item Name="LocalizableStrings.addRecord_b77omfc_caption.Value" Value="Добавить" />
+			<Item Name="LocalizableStrings.addRecord_zo7qvis_caption.Value" Value="Добавить" />
+			<Item Name="LocalizableStrings.Button_wkvkrgg_caption.Value" Value="Кнопка" />
+			<Item Name="LocalizableStrings.Button_xv0z5b7_caption.Value" Value="ПЫЩЬ" />
+			<Item Name="LocalizableStrings.ExpansionPanel_wuvzsn8_title.Value" Value="Просмотр недвижимости (FreedomUI)" />
+			<Item Name="LocalizableStrings.GridDetailAddBtn_zf0p57s_caption.Value" Value="Добавить" />
+			<Item Name="LocalizableStrings.GridDetailExportDataBtn_d71te25_caption.Value" Value="Экспорт в Excel" />
+			<Item Name="LocalizableStrings.GridDetailImportDataBtn_049rq0x_caption.Value" Value="Импорт данных" />
+			<Item Name="LocalizableStrings.GridDetailRefreshBtn_ij3jwox_caption.Value" Value="Обновить" />
+			<Item Name="LocalizableStrings.GridDetailSearchFilter_b1i25kw_placeholder.Value" Value="Поиск" />
+			<Item Name="LocalizableStrings.GridDetailSettingsBtn_v7kioog_caption.Value" Value="Действия" />
+			<Item Name="LocalizableStrings.NumberInput_7rxsnfh_tooltip.Value" Value="Общая площадь объекта недвижимости в квадратных метрах." />
+			<Item Name="LocalizableStrings.TabContainer_r7lo3fj_caption.Value" Value="Вкладка 2" />
+			<Item Name="LocalizableStrings.TabContainer_y40r27h_caption.Value" Value="Просмотры" />
+		</Items>
+	</Group>
+</Resources>
