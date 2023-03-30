@@ -2,6 +2,7 @@
 <Resources Culture="pl-PL">
 	<Group Type="String">
 		<Items>
+			<Item Name="BaseElements.PreconfiguredPageUserTask1.Parameters.Title.Value" Value="Страница вывода средней цены недвижимости" />
 			<Item Name="Caption" Value="Расчет средней цены недвижимости (classic)" />
 		</Items>
 	</Group>

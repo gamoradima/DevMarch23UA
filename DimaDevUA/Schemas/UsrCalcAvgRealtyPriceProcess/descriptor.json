@@ -2,7 +2,7 @@
   "Descriptor": {
     "UId": "ab48c722-88f1-40b0-947e-2956134ecbeb",
     "Name": "UsrCalcAvgRealtyPriceProcess",
-    "ModifiedOnUtc": "\/Date(1680095632000)\/",
+    "ModifiedOnUtc": "\/Date(1680177009000)\/",
     "ManagerName": "ProcessSchemaManager",
     "Caption": "Расчет средней цены недвижимости (classic)",
     "DependsOn": []

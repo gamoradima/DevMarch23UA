@@ -1,0 +1,13 @@
+﻿{
+  "Descriptor": {
+    "UId": "1b8be6d6-3b89-403b-99e3-5759278ed142",
+    "Name": "UsrAvgRealtyPriceOutputPage",
+    "ModifiedOnUtc": "\/Date(1680176455000)\/",
+    "Parent": {
+      "UId": "5826ff24-46c6-4169-9223-2aaad9ec2e18",
+      "Name": "BasePageSimpleProcessTemplate"
+    },
+    "ManagerName": "ClientUnitSchemaManager",
+    "Caption": "Страница вывода средней цены недвижимости"
+  }
+}

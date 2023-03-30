@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Resources Culture="ru-RU">
+	<Group Type="String">
+		<Items>
+			<Item Name="Caption" Value="Страница вывода средней цены недвижимости" />
+			<Item Name="LocalizableStrings.Button1ButtonCaption.Value" Value="Кнопка 1" />
+			<Item Name="Parameters.5435f3ab-89f9-43ab-a659-a58d24583909.Caption" Value="SQL text" />
+			<Item Name="Parameters.6a63e410-3c26-4640-920b-a3dec1d6c8d8.Caption" Value="Средняя цена, USD/м2" />
+			<Item Name="Parameters.c49bd85e-159a-49ee-b10a-3c3bca63d7d5.Value.c4841740-ff8c-406f-8626-1c78f78608bf.Caption" Value="Закрыть" />
+			<Item Name="Parameters.c49bd85e-159a-49ee-b10a-3c3bca63d7d5.Value.cdb3ee64-9f97-413a-9507-65fb9a5814ca.Caption" Value="Кнопка 1" />
+			<Item Name="Parameters.c49bd85e-159a-49ee-b10a-3c3bca63d7d5.Value.f073e66a-36ec-47d7-9c6a-e5952dbf05a3.Caption" Value="Сохранить" />
+		</Items>
+	</Group>
+</Resources>
