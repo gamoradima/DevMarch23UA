@@ -1,5 +1,4 @@
-/* jshint esversion: 6 */
-define("UsrRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEMA_ARGS*/()/**SCHEMA_ARGS*/ {
+define("UsrRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/["@creatio-devkit/common"]/**SCHEMA_DEPS*/, function/**SCHEMA_ARGS*/(sdk)/**SCHEMA_ARGS*/ {
 	return {
 		viewConfigDiff: /**SCHEMA_VIEW_CONFIG_DIFF*/[
 			{
@@ -261,6 +260,32 @@ define("UsrRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, functi
 				"parentName": "GridContainer_7qu3pgl",
 				"propertyName": "items",
 				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "RunWebServiceButton",
+				"values": {
+					"layoutConfig": {
+						"column": 2,
+						"row": 1,
+						"colSpan": 1,
+						"rowSpan": 1
+					},
+					"type": "crt.Button",
+					"caption": "#ResourceString(Button_isgcaiq_caption)#",
+					"color": "warn",
+					"disabled": false,
+					"size": "large",
+					"iconPosition": "only-text",
+					"visible": true,
+					"clicked": {
+						"request": "usr.RunWebServiceButtonRequest"
+					},
+					"clickMode": "default"
+				},
+				"parentName": "GridContainer_7qu3pgl",
+				"propertyName": "items",
+				"index": 1
 			},
 			{
 				"operation": "insert",
@@ -811,7 +836,44 @@ define("UsrRealtyFreedomUI_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, functi
 					/* Call the next handler if it exists and return its result. */
 					return next?.handle(request);
 				}
-			}
+			},
+			{
+				request: "usr.RunWebServiceButtonRequest",
+				/* Implementation of the custom query handler. */
+				handler: async (request, next) => {
+					this.console.log("Run web service button works...");
+
+					var typeObject = await request.$context.LookupAttribute_xkxvx3e;
+					var typeId = "";
+					if (typeObject) {
+						typeId = typeObject.value;
+					}
+					
+					var offerTypeObject = await request.$context.LookupAttribute_shol86p;
+					var offerTypeId = "";
+					if (offerTypeObject) {
+						offerTypeId = offerTypeObject.value;
+					}
+
+					/* Create an instance of the HTTP client from @creatio-devkit/common. */
+					const httpClientService = new sdk.HttpClientService();
+					/* Specify the URL to run our web service. */
+					const endpoint = "http://localhost/D1_8.0.7.3748/0/rest/RealtyService/GetTotalAmountByTypeId";
+					/* Send a POST request. The HTTP client converts the response body from JSON to a JS object automatically. */
+					var params = {
+						realtyTypeId: typeId,
+						realtyOfferTypeId: offerTypeId,
+						entityName: "UsrRealtyFreedomUI"
+					};
+					const response = await httpClientService.post(endpoint, params);
+					
+					this.console.log("response total price = " + response.body.GetTotalAmountByTypeIdResult);
+					
+					/* Call the next handler if it exists and return its result. */
+					return next?.handle(request);
+				}
+			},	
+
 
 		]/**SCHEMA_HANDLERS*/,
 		converters: /**SCHEMA_CONVERTERS*/{}/**SCHEMA_CONVERTERS*/,

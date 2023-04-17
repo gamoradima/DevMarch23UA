@@ -5,6 +5,7 @@
 			<Item Name="Caption" Value="Страница записи Недвижимость (FreedomUI)" />
 			<Item Name="LocalizableStrings.addRecord_b77omfc_caption.Value" Value="Добавить" />
 			<Item Name="LocalizableStrings.addRecord_zo7qvis_caption.Value" Value="Добавить" />
+			<Item Name="LocalizableStrings.Button_isgcaiq_caption.Value" Value="Запуск сервиса" />
 			<Item Name="LocalizableStrings.Button_wkvkrgg_caption.Value" Value="Кнопка" />
 			<Item Name="LocalizableStrings.Button_xv0z5b7_caption.Value" Value="ПЫЩЬ" />
 			<Item Name="LocalizableStrings.ExpansionPanel_wuvzsn8_title.Value" Value="Просмотр недвижимости (FreedomUI)" />

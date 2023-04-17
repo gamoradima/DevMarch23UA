@@ -4,6 +4,7 @@
 		<Items>
 			<Item Name="Caption" Value="Страница редактирования: &quot;Недвижимость (classic)&quot;" />
 			<Item Name="LocalizableStrings.MyButtonCaption.Value" Value="ПЫЩЬ!" />
+			<Item Name="LocalizableStrings.RunWebServiceButtonCaption.Value" Value="Запуск сервиса" />
 			<Item Name="LocalizableStrings.Tab4c958596TabLabelTabCaption.Value" Value="Просмотры" />
 			<Item Name="LocalizableStrings.UsrSchema0eb388b8Detail902bbd7aDetailCaptionOnPage.Value" Value="Просмотр недвижимости (classic)" />
 			<Item Name="LocalizableStrings.ValueMustBeGreaterThanZero.Value" Value="Значение должно быть больше нуля." />
